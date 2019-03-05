@@ -98,9 +98,6 @@ public class ImageUtils {
 
 		Graphics2D gr = (Graphics2D) img.getGraphics();
 
-		gr.setColor(ColourUtils.background);
-		gr.fillRect(0, 0, img.getWidth(), img.getHeight());
-
 		gr.setColor(ColourUtils.gray);
 
 		gr.fill(area);
