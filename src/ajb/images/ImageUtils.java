@@ -5,12 +5,15 @@ import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsEnvironment;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
+import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+
+import ajb.colours.ColourUtils;
 
 public class ImageUtils {
 
@@ -88,4 +91,22 @@ public class ImageUtils {
 		return count;
 	}	
 
+	public static BufferedImage drawArea(Area area) {
+		
+		BufferedImage img = ImageUtils.create(area.getBounds2D().getMaxX(), area.getBounds2D().getMaxY());
+
+		Graphics2D gr = (Graphics2D) img.getGraphics();
+
+		gr.setColor(ColourUtils.background);
+		gr.fillRect(0, 0, img.getWidth(), img.getHeight());
+
+		gr.setColor(ColourUtils.gray);
+
+		gr.fill(area);
+
+		gr.dispose();		
+		
+		return img;		
+		
+	}	
 }
