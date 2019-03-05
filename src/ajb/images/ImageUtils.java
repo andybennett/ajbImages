@@ -6,6 +6,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -108,5 +109,24 @@ public class ImageUtils {
 		
 		return img;		
 		
+	}
+	
+	public static Area createAreaFromImage(BufferedImage image) {
+
+		Area result = new Area();
+		
+		for (int x = 0; x < image.getWidth(); x++) {
+
+			for (int y = 0; y < image.getHeight(); y++) {
+
+				if (image.getRGB(x, y) > 0) {
+
+					result.add(new Area(new Rectangle2D.Double(x, y, 1, 1)));
+
+				}
+			}
+		}
+		
+		return result;
 	}	
 }
