@@ -39,13 +39,13 @@ public class ImageUtils {
 
 	}
 
-	public BufferedImage getImage(String image) {
+	public static BufferedImage getImage(File image) {
 
 		BufferedImage result = null;
 
 		try {
 
-			ImageIO.read(this.getClass().getResourceAsStream(image));
+			ImageIO.read(image);
 
 		} catch (IOException e) {
 
