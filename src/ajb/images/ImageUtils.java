@@ -45,7 +45,7 @@ public class ImageUtils {
 
 		try {
 
-			ImageIO.read(image);
+			result = ImageIO.read(image);
 
 		} catch (IOException e) {
 
@@ -81,7 +81,7 @@ public class ImageUtils {
 
 			for (int y = 0; y < image.getHeight(); y++) {
 
-				if (image.getRGB(x, y) > 0) {
+				if (image.getRGB(x, y) != 0) {
 
 					count++;
 
@@ -116,7 +116,9 @@ public class ImageUtils {
 
 			for (int y = 0; y < image.getHeight(); y++) {
 
-				if (image.getRGB(x, y) > 0) {
+				System.out.println(image.getRGB(x, y));
+				
+				if (image.getRGB(x, y) != 0) {
 
 					result.add(new Area(new Rectangle2D.Double(x, y, 1, 1)));
 
