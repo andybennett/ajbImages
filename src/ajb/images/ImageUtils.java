@@ -112,7 +112,7 @@ public class ImageUtils {
 
 		Area result = new Area();
 		
-		for (int x = 0; x < image.getWidth(); x++) {
+		for (int x = image.getWidth() / 2; x < image.getWidth(); x++) {
 
 			for (int y = 0; y < image.getHeight(); y++) {
 				
